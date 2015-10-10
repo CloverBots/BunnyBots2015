@@ -15,8 +15,10 @@ private:
 	RobotDrive* pRobotDrive;
 public:
 	DriveSystem();
+	~DriveSystem();
+
 	void InitDefaultCommand();
-	void drive(float x, float y, float rot);
+	void Drive(float x, float y, float rot);
 };
 
 #endif

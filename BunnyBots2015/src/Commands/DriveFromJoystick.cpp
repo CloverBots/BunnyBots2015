@@ -8,13 +8,13 @@ DriveFromJoystick::DriveFromJoystick()
 // Called just before this Command runs the first time
 void DriveFromJoystick::Initialize()
 {
-	pDriveSystem->drive(0, 0, 0);
+	pDriveSystem->Drive(0, 0, 0);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveFromJoystick::Execute()
 {
-	pDriveSystem->drive(oi->getStick1()->GetRawAxis(0),
+	pDriveSystem->Drive(oi->getStick1()->GetRawAxis(0),
 			oi->getStick1()->GetRawAxis(1),
 			oi->getStick1()->GetRawAxis(4));
 }
@@ -28,7 +28,7 @@ bool DriveFromJoystick::IsFinished()
 // Called once after isFinished returns true
 void DriveFromJoystick::End()
 {
-	pDriveSystem->drive(0, 0, 0);
+	pDriveSystem->Drive(0, 0, 0);
 }
 
 // Called when another command which requires one or more of the same
