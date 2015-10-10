@@ -1,8 +1,7 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
-#include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
-#include "DriveSystem.h"
+#include "Subsystems/DriveSystem.h"
 
 class Robot: public IterativeRobot
 {
@@ -13,7 +12,7 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		autonomousCommand = new ExampleCommand();
+		autonomousCommand = NULL;
 		lw = LiveWindow::GetInstance();
 	}
 	

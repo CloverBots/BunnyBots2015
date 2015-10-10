@@ -7,12 +7,12 @@
 class DriveSystem: public Subsystem
 {
 private:
-	Talon frontRightTalon;
-	Talon frontLeftTalon;
-	Talon rearRightTalon;
-	Talon rearLeftTalon;
+	Talon* pFrontRightTalon;
+	Talon* pFrontLeftTalon;
+	Talon* pRearRightTalon;
+	Talon* pRearLeftTalon;
 
-	RobotDrive robotDrive;
+	RobotDrive* pRobotDrive;
 public:
 	DriveSystem();
 	void InitDefaultCommand();

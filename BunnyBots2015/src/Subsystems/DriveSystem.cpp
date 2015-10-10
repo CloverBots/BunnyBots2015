@@ -1,16 +1,16 @@
 #include "DriveSystem.h"
 #include "../RobotMap.h"
-#include "../DriveFromJoystick.h"
+#include "../Commands/DriveFromJoystick.h"
 
 DriveSystem::DriveSystem() :
-		Subsystem("ExampleSubsystem")
+		Subsystem("DriveSystem")
 {
-	frontLeftTalon = Talon(RobotMap::FRONTLEFTMOTOR);
-	frontRightTalon = Talon(RobotMap::FRONTRIGHTMOTOR);
-	rearRightTalon = Talon(RobotMap::REARLEFTMOTOR);
-	rearRightTalon = Talon(RobotMap::REARRIGHTMOTOR);
+	pFrontLeftTalon = new Talon(RobotMap::FRONTLEFTMOTOR);
+	pFrontRightTalon = new Talon(RobotMap::FRONTRIGHTMOTOR);
+	pRearRightTalon = new Talon(RobotMap::REARLEFTMOTOR);
+	pRearRightTalon = new Talon(RobotMap::REARRIGHTMOTOR);
 
-	robotDrive = RobotDrive(frontLeftTalon, rearLeftTalon, frontRightTalon, rearRightTalon);
+	pRobotDrive = new RobotDrive(pFrontLeftTalon, pRearLeftTalon, pFrontRightTalon, pRearRightTalon);
 }
 
 void DriveSystem::InitDefaultCommand()
@@ -20,5 +20,5 @@ void DriveSystem::InitDefaultCommand()
 
 void DriveSystem::drive(float x, float y, float rot)
 {
-	robotDrive.MecanumDrive_Cartesian(x, y, rot, 0f);
+	pRobotDrive->MecanumDrive_Cartesian(x, y, rot, 0);
 }

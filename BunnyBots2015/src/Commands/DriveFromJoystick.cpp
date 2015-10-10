@@ -8,7 +8,7 @@ DriveFromJoystick::DriveFromJoystick()
 // Called just before this Command runs the first time
 void DriveFromJoystick::Initialize()
 {
-	pDriveSystem->drive(0f, 0f, 0f);
+	pDriveSystem->drive(0, 0, 0);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -28,7 +28,7 @@ bool DriveFromJoystick::IsFinished()
 // Called once after isFinished returns true
 void DriveFromJoystick::End()
 {
-	pDriveSystem->drive(0f, 0f, 0f);
+	pDriveSystem->drive(0, 0, 0);
 }
 
 // Called when another command which requires one or more of the same
