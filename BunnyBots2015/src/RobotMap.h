@@ -10,6 +10,10 @@ public:
 	const static int FRONTRIGHTMOTOR = 1;
 	const static int REARLEFTMOTOR = 2;
 	const static int REARRIGHTMOTOR = 3;
+	const static int PADDLEMOTOR = 4;
+	const static u_int32_t PADDLE_CHANNEL_A = 1;
+	const static u_int32_t PADDLE_CHANNEL_B = 2;
+
 };
 
 /**
