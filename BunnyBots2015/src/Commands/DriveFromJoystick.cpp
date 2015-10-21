@@ -2,19 +2,19 @@
 
 DriveFromJoystick::DriveFromJoystick()
 {
-	Requires(pDriveSystem);
+	Requires(pPIDMecanumDrive);
 }
 
 // Called just before this Command runs the first time
 void DriveFromJoystick::Initialize()
 {
-	pDriveSystem->Drive(0, 0, 0);
+	pPIDMecanumDrive->Drive(0, 0, 0);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveFromJoystick::Execute()
 {
-	pDriveSystem->Drive(oi->getStick1()->GetRawAxis(0),
+	pPIDMecanumDrive->Drive(oi->getStick1()->GetRawAxis(0),
 			oi->getStick1()->GetRawAxis(1),
 			oi->getStick1()->GetRawAxis(4));
 }
@@ -28,7 +28,7 @@ bool DriveFromJoystick::IsFinished()
 // Called once after isFinished returns true
 void DriveFromJoystick::End()
 {
-	pDriveSystem->Drive(0, 0, 0);
+	pPIDMecanumDrive->Drive(0, 0, 0);
 }
 
 // Called when another command which requires one or more of the same

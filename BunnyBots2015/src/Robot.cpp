@@ -1,7 +1,6 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "CommandBase.h"
-#include "Subsystems/DriveSystem.h"
 
 class Robot: public IterativeRobot
 {
@@ -12,10 +11,15 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		autonomousCommand = NULL;
+		autonomousCommand = NULL; // Placeholder.
 		lw = LiveWindow::GetInstance();
 	}
 	
+	void DisabledInit()
+	{
+		CommandBase::pPIDMecanumDrive->Reset();
+	}
+
 	void DisabledPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
@@ -23,6 +27,8 @@ private:
 
 	void AutonomousInit()
 	{
+		CommandBase::pPIDMecanumDrive->Enable();
+
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
 	}
@@ -34,12 +40,10 @@ private:
 
 	void TeleopInit()
 	{
-		// This makes sure that the autonomous stops running when
-		// teleop starts running. If you want the autonomous to 
-		// continue until interrupted by another command, remove
-		// this line or comment it out.
 		if (autonomousCommand != NULL)
 			autonomousCommand->Cancel();
+
+		CommandBase::pPIDMecanumDrive->Enable();
 	}
 
 	void TeleopPeriodic()

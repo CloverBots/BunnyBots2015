@@ -3,7 +3,7 @@
 
 #include <string>
 #include "Commands/Command.h"
-#include "Subsystems/DriveSystem.h"
+#include "Subsystems/PIDMecanumDrive.h"
 #include "OI.h"
 #include "WPILib.h"
 
@@ -20,7 +20,7 @@ public:
 	static void init();
 	// Create a single static instance of all of your subsystems
 	static OI *oi;
-	static DriveSystem* pDriveSystem;
+	static PIDMecanumDrive* pPIDMecanumDrive;
 };
 
 #endif

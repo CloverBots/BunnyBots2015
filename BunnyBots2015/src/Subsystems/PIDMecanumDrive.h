@@ -8,14 +8,21 @@
 #ifndef SRC_PIDROBOTDRIVE_H_
 #define SRC_PIDROBOTDRIVE_H_
 
+#include <WPILib.h>
 #include <Talon.h>
 #include <PIDController.h>
 #include <PIDSource.h>
+#include <PIDOutput.h>
 #include <Encoder.h>
 
-class PIDMecanumDrive
+class PIDMecanumDrive : public Subsystem
 {
 private:
+	Encoder* m_pFrontLeftEncoder;
+	Encoder* m_pRearLeftEncoder;
+	Encoder* m_pFrontRightEncoder;
+	Encoder* m_pRearRightEncoder;
+
 	Talon* m_pFrontLeftTalon;
 	Talon* m_pRearLeftTalon;
 	Talon* m_pFrontRightTalon;
@@ -28,35 +35,22 @@ private:
 
 	double* m_pWheelSpeeds;
 
-	class RobotDrivePIDSource : public PIDSource
-	{
-	private:
-		Encoder* m_pEncoder;
-	public:
-		RobotDrivePIDSource(Encoder* pEncoder)
-			: m_pEncoder(pEncoder)
-		{
-		}
-
-		double PIDGet()
-		{
-			return m_pEncoder->GetRate();
-		}
-	};
+	const float m_P = 0.1f;
+	const float m_I = 1.0f;
+	const float m_D = 0.0f;
+	const float m_TOLERANCE = 2.0f;
 
 	void Normalize(double* pWheelSpeeds, int numWheels);
 
 public:
-	PIDMecanumDrive(
-			uint32_t frontLeftMotorChannel, Encoder* pFrontLeftEncoder,
-			uint32_t rearLeftMotorChannel, Encoder* pRearLeftEncoder,
-			uint32_t frontRightMotorChannel, Encoder* pFrontRightEncoder,
-			uint32_t rearRightMotorChannel, Encoder* pRearRightEncoder,
-			float p, float i, float d, float tolerance);
-
+	PIDMecanumDrive();
 	~PIDMecanumDrive();
 
+	void InitDefaultCommand();
 	void Drive(float x, float y, float rotation);
+	void Enable();
+	void Reset();
+	bool IsEnabled();
 };
 
 #endif /* SRC_PIDROBOTDRIVE_H_ */
