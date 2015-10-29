@@ -14,8 +14,8 @@ public:
 	Paddle();
 	~Paddle();
 	void InitDefaultCommand();
-
-
+	PIDController* GetPIDController();
+	Talon* GetTalon();
 };
 
 #endif

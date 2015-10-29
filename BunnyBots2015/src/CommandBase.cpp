@@ -4,6 +4,7 @@
 
 PIDMecanumDrive* CommandBase::pPIDMecanumDrive = NULL;
 OI* CommandBase::oi = NULL;
+Paddle* CommandBase::oi = NULL;
 
 CommandBase::CommandBase(char const *name) :
 		Command(name)
@@ -19,4 +20,5 @@ void CommandBase::init()
 {
 	oi = new OI();
 	pPIDMecanumDrive = new PIDMecanumDrive();
+	pPaddle = new Paddle();
 }
