@@ -14,6 +14,7 @@
 #include <PIDSource.h>
 #include <PIDOutput.h>
 #include <Encoder.h>
+#include <cmath>
 
 class PIDMecanumDrive : public Subsystem
 {
@@ -39,6 +40,8 @@ private:
 	const float m_I = 1.0f;
 	const float m_D = 0.0f;
 	const float m_TOLERANCE = 2.0f;
+	const float m_RADIUS = 2.0f;
+	const float m_CIRCUMFERENCE = M_PI * m_RADIUS;
 
 	void Normalize(double* pWheelSpeeds, int numWheels);
 
@@ -47,7 +50,8 @@ public:
 	~PIDMecanumDrive();
 
 	void InitDefaultCommand();
-	void Drive(float x, float y, float rotation);
+	void DriveSetSpeed(float x, float y, float rotation);
+	void DriveForDistance(float xFeet, float yFeet, float rotationFeet);
 	void Enable();
 	void Reset();
 	bool IsEnabled();

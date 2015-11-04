@@ -29,11 +29,6 @@ PIDMecanumDrive::PIDMecanumDrive()
 			RobotMap::REAR_RIGHT_MOTOR_ENCODER_PORT_A,
 			RobotMap::REAR_RIGHT_MOTOR_ENCODER_PORT_B);
 
-	m_pFrontLeftEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kRate);
-	m_pRearLeftEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kRate);
-	m_pFrontRightEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kRate);
-	m_pRearRightEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kRate);
-
 	m_pFrontLeftTalon = new Talon(RobotMap::FRONT_LEFT_MOTOR_PORT);
 	m_pRearLeftTalon = new Talon(RobotMap::REAR_LEFT_MOTOR_PORT);
 	m_pFrontRightTalon = new Talon(RobotMap::FRONT_RIGHT_MOTOR_PORT);
@@ -115,14 +110,41 @@ void PIDMecanumDrive::InitDefaultCommand()
 	SetDefaultCommand(new DriveFromJoystick());
 }
 
-void PIDMecanumDrive::Drive(float x, float y, float rotation)
+void PIDMecanumDrive::DriveSetSpeed(float x, float y, float rotation)
 {
+	m_pFrontLeftEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kRate);
+	m_pRearLeftEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kRate);
+	m_pFrontRightEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kRate);
+	m_pRearRightEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kRate);
+
 	m_pWheelSpeeds[0] = x - y + rotation;
 	m_pWheelSpeeds[1] = -x - y - rotation;
 	m_pWheelSpeeds[2] = -x - y + rotation;
 	m_pWheelSpeeds[3] = x - y - rotation;
 
 	Normalize(m_pWheelSpeeds, 4);
+
+	m_pFrontLeftPIDController->SetSetpoint(m_pWheelSpeeds[0]);
+	m_pRearLeftPIDController->SetSetpoint(m_pWheelSpeeds[1]);
+	m_pFrontRightPIDController->SetSetpoint(m_pWheelSpeeds[2]);
+	m_pRearRightPIDController->SetSetpoint(m_pWheelSpeeds[3]);
+}
+
+void PIDMecanumDrive::DriveForDistance(float xFeet, float yFeet, float rotationFeet)
+{
+	m_pFrontLeftEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kAngle);
+	m_pRearLeftEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kAngle);
+	m_pFrontRightEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kAngle);
+	m_pRearRightEncoder->SetPIDSourceParameter(PIDSource::PIDSourceParameter::kAngle);
+
+	float xAngle = xFeet * m_CIRCUMFERENCE;
+	float yAngle = yFeet * m_CIRCUMFERENCE;
+	float rotationAngle = rotationFeet * m_CIRCUMFERENCE;
+
+	m_pWheelSpeeds[0] = xAngle - yAngle + rotationAngle;
+	m_pWheelSpeeds[1] = -xAngle - yAngle - rotationAngle;
+	m_pWheelSpeeds[2] = -xAngle - yAngle + rotationAngle;
+	m_pWheelSpeeds[4] = xAngle - yAngle - rotationAngle;
 
 	m_pFrontLeftPIDController->SetSetpoint(m_pWheelSpeeds[0]);
 	m_pRearLeftPIDController->SetSetpoint(m_pWheelSpeeds[1]);

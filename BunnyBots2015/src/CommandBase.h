@@ -4,6 +4,7 @@
 #include <string>
 #include "Commands/Command.h"
 #include "Subsystems/PIDMecanumDrive.h"
+#include "Subsystems/Paddle.h"
 #include "OI.h"
 #include "WPILib.h"
 
