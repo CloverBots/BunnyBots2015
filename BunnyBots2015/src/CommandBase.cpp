@@ -4,7 +4,7 @@
 
 PIDMecanumDrive* CommandBase::pPIDMecanumDrive = NULL;
 OI* CommandBase::oi = NULL;
-Paddle* CommandBase::oi = NULL;
+Paddle* CommandBase::pPaddle = NULL;
 
 CommandBase::CommandBase(char const *name) :
 		Command(name)
