@@ -8,7 +8,7 @@ SetPaddleAngle::SetPaddleAngle(float angle)
 
 void SetPaddleAngle::Initialize()
 {
-	CommandBase::pPaddle->m_pPIDController->SetSetpoint(m_paddleAngle);
+	CommandBase::pPaddle->GetPIDController()->SetSetpoint(m_paddleAngle);
 }
 
 void SetPaddleAngle::Execute()
