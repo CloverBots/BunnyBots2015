@@ -7,11 +7,14 @@ class Robot: public IterativeRobot
 private:
 	Command *autonomousCommand;
 	LiveWindow *lw;
+	SendableChooser *pAutonomousChooser;
 
 	void RobotInit()
 	{
 		CommandBase::init();
-		autonomousCommand = NULL; // Placeholder.
+		pAutonomousChooser = new SendableChooser();
+		pAutonomousChooser->AddDefault("Drive straight for 10ft", new AutonomousCommand());
+		autonomousCommand = (AutonomousCommand*)pAutonomousChooser->GetSelected();
 		lw = LiveWindow::GetInstance();
 	}
 	
