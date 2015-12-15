@@ -1,13 +1,13 @@
-#ifndef DriveFromJoystick_H
-#define DriveFromJoystick_H
+#ifndef BasicDriveFromJoystick_H
+#define BasicDriveFromJoystick_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class DriveFromJoystick: public CommandBase
+class BasicDriveFromJoystick: public CommandBase
 {
 public:
-	DriveFromJoystick();
+	BasicDriveFromJoystick();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

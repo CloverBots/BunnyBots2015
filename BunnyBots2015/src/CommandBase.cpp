@@ -2,8 +2,9 @@
 #include "Subsystems/PIDMecanumDrive.h"
 #include "Commands/Scheduler.h"
 
-PIDMecanumDrive* CommandBase::pPIDMecanumDrive = NULL;
 OI* CommandBase::oi = NULL;
+PIDMecanumDrive* CommandBase::pPIDMecanumDrive = NULL;
+BasicMecanumDrive* CommandBase::pBasicMecanumDrive = NULL;
 Paddle* CommandBase::pPaddle = NULL;
 
 CommandBase::CommandBase(char const *name) :
@@ -19,6 +20,7 @@ CommandBase::CommandBase() :
 void CommandBase::init()
 {
 	oi = new OI();
-	pPIDMecanumDrive = new PIDMecanumDrive();
+	//pPIDMecanumDrive = new PIDMecanumDrive(); // Uncomment to initialize the subsystem.
+	pBasicMecanumDrive = new BasicMecanumDrive();
 	pPaddle = new Paddle();
 }

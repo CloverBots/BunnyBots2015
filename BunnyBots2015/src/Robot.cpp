@@ -17,7 +17,7 @@ private:
 	
 	void DisabledInit()
 	{
-		CommandBase::pPIDMecanumDrive->Reset();
+//		CommandBase::pBasicMecanumDrive->Reset();
 	}
 
 	void DisabledPeriodic()
@@ -27,7 +27,7 @@ private:
 
 	void AutonomousInit()
 	{
-		CommandBase::pPIDMecanumDrive->Enable();
+//		CommandBase::pBasicMecanumDrive->Enable();
 
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
@@ -43,7 +43,7 @@ private:
 		if (autonomousCommand != NULL)
 			autonomousCommand->Cancel();
 
-		CommandBase::pPIDMecanumDrive->Enable();
+//		CommandBase::pBasicMecanumDrive->Enable();
 	}
 
 	void TeleopPeriodic()

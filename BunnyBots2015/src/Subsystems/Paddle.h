@@ -13,9 +13,9 @@ private:
 public:
 	Paddle();
 	~Paddle();
+
 	void InitDefaultCommand();
-	PIDController* GetPIDController();
-	Talon* GetTalon();
+	void SetAngle(float angle);
 };
 
 #endif

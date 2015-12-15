@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Commands/Command.h"
+#include "Subsystems/BasicMecanumDrive.h"
 #include "Subsystems/PIDMecanumDrive.h"
 #include "Subsystems/Paddle.h"
 #include "OI.h"
@@ -22,6 +23,7 @@ public:
 	// Create a single static instance of all of your subsystems
 	static OI *oi;
 	static PIDMecanumDrive* pPIDMecanumDrive;
+	static BasicMecanumDrive* pBasicMecanumDrive;
 	static Paddle* pPaddle;
 };
 

@@ -8,6 +8,7 @@
 #ifndef SRC_PIDROBOTDRIVE_H_
 #define SRC_PIDROBOTDRIVE_H_
 
+#include <Talon.h>
 #include <WPILib.h>
 #include <Talon.h>
 #include <PIDController.h>

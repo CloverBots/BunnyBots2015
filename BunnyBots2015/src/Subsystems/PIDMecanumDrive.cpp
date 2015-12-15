@@ -7,7 +7,7 @@
 
 #include "PIDMecanumDrive.h"
 #include "../RobotMap.h"
-#include "../Commands/DriveFromJoystick.h"
+#include "../Commands/PIDDriveFromJoystick.h"
 
 PIDMecanumDrive::PIDMecanumDrive()
 		: Subsystem("PIDMecanumDrive"),
@@ -107,7 +107,7 @@ void PIDMecanumDrive::Normalize(double* pWheelSpeeds, int numWheels)
 
 void PIDMecanumDrive::InitDefaultCommand()
 {
-	SetDefaultCommand(new DriveFromJoystick());
+	SetDefaultCommand(new PIDDriveFromJoystick());
 }
 
 void PIDMecanumDrive::DriveSetSpeed(float x, float y, float rotation)

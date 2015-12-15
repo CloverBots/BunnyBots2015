@@ -2,7 +2,7 @@
 #include "../RobotMap.h"
 
 Paddle::Paddle() :
-		Subsystem("ExampleSubsystem")
+		Subsystem("Paddle")
 {
 	m_pPaddleMotor = new Talon(RobotMap::PADDLE_MOTOR_PORT);
 	m_pEncoder = new Encoder(RobotMap::PADDLE_CHANNEL_A, RobotMap::PADDLE_CHANNEL_B, false, Encoder::EncodingType::k4X);
@@ -21,12 +21,7 @@ void Paddle::InitDefaultCommand()
 {
 }
 
-Talon* Paddle::GetTalon()
+void Paddle::SetAngle(float angle)
 {
-	return m_pPaddleMotor;
-}
-
-PIDController* Paddle::GetPIDController()
-{
-	return m_pPIDController;
+	m_pPIDController->SetSetpoint(angle);
 }
