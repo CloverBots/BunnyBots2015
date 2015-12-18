@@ -3,8 +3,8 @@
 
 OI::OI()
 {
-	pStick1 = new Joystick(1);
-	pStick2 = new Joystick(2);
+	pStick1 = new Joystick(0);
+	pStick2 = new Joystick(1);
 
 	pLeftBumper = new JoystickButton(pStick2, 5);
 	pRightBumper = new JoystickButton(pStick2, 6);
@@ -24,5 +24,9 @@ OI::~OI()
 Joystick* OI::getStick1()
 {
 	return pStick1;
+}
+
+Joystick* OI::getStick2()
+{
 	return pStick2;
 }

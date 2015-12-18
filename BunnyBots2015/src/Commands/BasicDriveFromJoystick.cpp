@@ -1,7 +1,9 @@
 #include "BasicDriveFromJoystick.h"
 #include "../CommandBase.h"
+#include <iostream>
 
 BasicDriveFromJoystick::BasicDriveFromJoystick()
+	: CommandBase("BasicDriveFromJoystick")
 {
 	Requires(CommandBase::pBasicMecanumDrive);
 }
@@ -14,6 +16,7 @@ void BasicDriveFromJoystick::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void BasicDriveFromJoystick::Execute()
 {
+	std::cout << "Execute called...\n";
 	CommandBase::pBasicMecanumDrive->Drive(
 			oi->getStick1()->GetRawAxis(0),
 			oi->getStick1()->GetRawAxis(1),

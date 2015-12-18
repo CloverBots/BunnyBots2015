@@ -1,7 +1,7 @@
 #include "SetPaddleAngle.h"
 
 SetPaddleAngle::SetPaddleAngle(float angle)
-: m_paddleAngle(angle)
+: CommandBase("SetPaddleAngle"), m_paddleAngle(angle)
 {
 	Requires(CommandBase::pPaddle);
 }

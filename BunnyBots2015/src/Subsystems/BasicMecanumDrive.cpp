@@ -12,6 +12,8 @@ BasicMecanumDrive::BasicMecanumDrive() :
 
 	m_pRobotDrive = new RobotDrive(m_pFrontLeftMotor, m_pRearLeftMotor,
 			m_pFrontRightMotor, m_pRearRightMotor);
+
+	m_pRobotDrive->SetSafetyEnabled(false);
 }
 
 BasicMecanumDrive::~BasicMecanumDrive()

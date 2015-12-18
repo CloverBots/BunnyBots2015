@@ -1,9 +1,9 @@
 #include "AutonomousCommand.h"
-#include "DriveFromPresets.h"
+#include "PIDDriveFromPresets.h"
 
 AutonomousCommand::AutonomousCommand()
 {
-	AddSequential(new DriveFromPresets(10.0f, 0.0f, 0.0f));
+	AddSequential(new PIDDriveFromPresets(10.0f, 0.0f, 0.0f));
 
 	// To run multiple commands at the same time,
 	// use AddParallel()

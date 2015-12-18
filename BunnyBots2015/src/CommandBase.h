@@ -22,7 +22,7 @@ public:
 	static void init();
 	// Create a single static instance of all of your subsystems
 	static OI *oi;
-	static PIDMecanumDrive* pPIDMecanumDrive;
+	//static PIDMecanumDrive* pPIDMecanumDrive;
 	static BasicMecanumDrive* pBasicMecanumDrive;
 	static Paddle* pPaddle;
 };

@@ -1,5 +1,5 @@
 #include "WPILib.h"
-#include "Commands/Command.h"
+#include "Commands/AutonomousCommand.h"
 #include "CommandBase.h"
 
 class Robot: public IterativeRobot
@@ -12,9 +12,9 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		pAutonomousChooser = new SendableChooser();
-		pAutonomousChooser->AddDefault("Drive straight for 10ft", new AutonomousCommand());
-		autonomousCommand = (AutonomousCommand*)pAutonomousChooser->GetSelected();
+		//pAutonomousChooser = new SendableChooser();
+		//pAutonomousChooser->AddDefault("Drive straight for 10ft", new AutonomousCommand());
+		//autonomousCommand = (AutonomousCommand*)pAutonomousChooser->GetSelected();
 		lw = LiveWindow::GetInstance();
 	}
 	

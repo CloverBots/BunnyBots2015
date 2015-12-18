@@ -14,20 +14,20 @@ PIDMecanumDrive::PIDMecanumDrive()
 		  m_pWheelSpeeds(new double[4] { 0.0, 0.0, 0.0, 0.0 })
 {
 	m_pFrontLeftEncoder = new Encoder(
-			RobotMap::FRONT_LEFT_MOTOR_ENCODER_PORT_A,
-			RobotMap::FRONT_LEFT_MOTOR_ENCODER_PORT_B);
+			RobotMap::FRONT_LEFT_ENCODER_PORT_A,
+			RobotMap::FRONT_LEFT_ENCODER_PORT_B);
 
 	m_pRearLeftEncoder = new Encoder(
-			RobotMap::REAR_LEFT_MOTOR_ENCODER_PORT_A,
-			RobotMap::REAR_LEFT_MOTOR_ENCODER_PORT_B);
+			RobotMap::REAR_LEFT_ENCODER_PORT_A,
+			RobotMap::REAR_LEFT_ENCODER_PORT_B);
 
 	m_pFrontRightEncoder = new Encoder(
-			RobotMap::FRONT_RIGHT_MOTOR_ENCODER_PORT_A,
-			RobotMap::FRONT_RIGHT_MOTOR_ENCODER_PORT_B);
+			RobotMap::FRONT_RIGHT_ENCODER_PORT_A,
+			RobotMap::FRONT_RIGHT_ENCODER_PORT_B);
 
 	m_pRearRightEncoder = new Encoder(
-			RobotMap::REAR_RIGHT_MOTOR_ENCODER_PORT_A,
-			RobotMap::REAR_RIGHT_MOTOR_ENCODER_PORT_B);
+			RobotMap::REAR_RIGHT_ENCODER_PORT_A,
+			RobotMap::REAR_RIGHT_ENCODER_PORT_B);
 
 	m_pFrontLeftTalon = new Talon(RobotMap::FRONT_LEFT_MOTOR_PORT);
 	m_pRearLeftTalon = new Talon(RobotMap::REAR_LEFT_MOTOR_PORT);
