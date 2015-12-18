@@ -3,7 +3,6 @@
 #include <iostream>
 
 BasicDriveFromJoystick::BasicDriveFromJoystick()
-	: CommandBase("BasicDriveFromJoystick")
 {
 	Requires(CommandBase::pBasicMecanumDrive);
 }

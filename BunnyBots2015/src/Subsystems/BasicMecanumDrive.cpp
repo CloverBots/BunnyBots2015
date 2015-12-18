@@ -5,10 +5,10 @@
 BasicMecanumDrive::BasicMecanumDrive() :
 		Subsystem("MecanumDrive"), m_xSpeed(0.0f), m_ySpeed(0.0f), m_rotSpeed(0.0f)
 {
-	m_pFrontLeftMotor = new CANTalon(RobotMap::FRONT_LEFT_MOTOR_PORT);
-	m_pRearLeftMotor = new CANTalon(RobotMap::REAR_LEFT_MOTOR_PORT);
-	m_pFrontRightMotor = new CANTalon(RobotMap::FRONT_RIGHT_MOTOR_PORT);
-	m_pRearRightMotor = new CANTalon(RobotMap::REAR_RIGHT_MOTOR_PORT);
+	m_pFrontLeftMotor = new Talon(RobotMap::FRONT_LEFT_MOTOR_PORT);
+	m_pRearLeftMotor = new Talon(RobotMap::REAR_LEFT_MOTOR_PORT);
+	m_pFrontRightMotor = new Talon(RobotMap::FRONT_RIGHT_MOTOR_PORT);
+	m_pRearRightMotor = new Talon(RobotMap::REAR_RIGHT_MOTOR_PORT);
 
 	m_pRobotDrive = new RobotDrive(m_pFrontLeftMotor, m_pRearLeftMotor,
 			m_pFrontRightMotor, m_pRearRightMotor);

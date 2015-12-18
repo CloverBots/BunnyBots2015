@@ -10,6 +10,8 @@ private:
 
 	Talon* m_pClawTalon;
 	Victor* m_pClawVictor;
+	DigitalInput* m_pLowerLimitSwitch;
+	DigitalInput* m_pUpperLimitSwitch;
 
 public:
 	BunnyClaw();
@@ -19,6 +21,9 @@ public:
 
 	void SetLiftSpeed(float speed);
 	void SetGrabSpeed(float speed);
+
+	bool IsLowerLimitReached();
+	bool IsUpperLimitReached();
 };
 
 #endif

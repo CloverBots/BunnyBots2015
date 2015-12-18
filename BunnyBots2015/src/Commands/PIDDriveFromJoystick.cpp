@@ -2,7 +2,6 @@
 #include "../CommandBase.h"
 
 PIDDriveFromJoystick::PIDDriveFromJoystick()
-	: CommandBase("PIDDriveFromJoystick")
 {
 	//Requires(CommandBase::pPIDMecanumDrive);
 }

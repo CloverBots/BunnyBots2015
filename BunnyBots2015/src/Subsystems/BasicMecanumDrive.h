@@ -8,10 +8,10 @@ class BasicMecanumDrive: public Subsystem
 {
 private:
 
-	CANTalon* m_pFrontLeftMotor;
-	CANTalon* m_pRearLeftMotor;
-	CANTalon* m_pFrontRightMotor;
-	CANTalon* m_pRearRightMotor;
+	Talon* m_pFrontLeftMotor;
+	Talon* m_pRearLeftMotor;
+	Talon* m_pFrontRightMotor;
+	Talon* m_pRearRightMotor;
 
 	RobotDrive* m_pRobotDrive;
 

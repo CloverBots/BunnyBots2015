@@ -1,7 +1,7 @@
 #include "PIDDriveFromPresets.h"
 
 PIDDriveFromPresets::PIDDriveFromPresets(float xFeet, float yFeet, float rotation)
-: CommandBase("PIDDriveFromPresets"), m_x(xFeet), m_y(yFeet), m_rotation(rotation)
+: m_x(xFeet), m_y(yFeet), m_rotation(rotation)
 {
 	//Requires(CommandBase::pPIDMecanumDrive);
 }
