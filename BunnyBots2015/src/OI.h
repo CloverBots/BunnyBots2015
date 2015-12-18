@@ -17,8 +17,8 @@ public:
 	OI();
 	~OI();
 
-	Joystick* getStick1();
-	Joystick* getStick2();
+	Joystick* GetStick1();
+	Joystick* GetStick2();
 };
 
 #endif

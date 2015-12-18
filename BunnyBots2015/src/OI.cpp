@@ -21,12 +21,12 @@ OI::~OI()
 	delete pRightBumper;
 }
 
-Joystick* OI::getStick1()
+Joystick* OI::GetStick1()
 {
 	return pStick1;
 }
 
-Joystick* OI::getStick2()
+Joystick* OI::GetStick2()
 {
 	return pStick2;
 }

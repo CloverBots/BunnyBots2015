@@ -6,6 +6,7 @@
 #include "Subsystems/BasicMecanumDrive.h"
 #include "Subsystems/PIDMecanumDrive.h"
 #include "Subsystems/Paddle.h"
+#include "Subsystems/BunnyClaw.h"
 #include "OI.h"
 #include "WPILib.h"
 
@@ -25,6 +26,7 @@ public:
 	//static PIDMecanumDrive* pPIDMecanumDrive;
 	static BasicMecanumDrive* pBasicMecanumDrive;
 	static Paddle* pPaddle;
+	static BunnyClaw* pBunnyClaw;
 };
 
 #endif

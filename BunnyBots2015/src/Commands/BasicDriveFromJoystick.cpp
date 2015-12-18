@@ -18,9 +18,9 @@ void BasicDriveFromJoystick::Execute()
 {
 	std::cout << "Execute called...\n";
 	CommandBase::pBasicMecanumDrive->Drive(
-			oi->getStick1()->GetRawAxis(0),
-			oi->getStick1()->GetRawAxis(1),
-			oi->getStick1()->GetRawAxis(4));
+			oi->GetStick1()->GetRawAxis(0),
+			oi->GetStick1()->GetRawAxis(1),
+			oi->GetStick1()->GetRawAxis(4));
 }
 
 // Make this return true when this Command no longer needs to run execute()

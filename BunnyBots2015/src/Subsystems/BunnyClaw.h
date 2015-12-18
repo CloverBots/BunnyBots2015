@@ -8,11 +8,17 @@ class BunnyClaw: public Subsystem
 {
 private:
 
+	Talon* m_pClawTalon;
 	Victor* m_pClawVictor;
 
 public:
 	BunnyClaw();
+	~BunnyClaw();
+
 	void InitDefaultCommand();
+
+	void SetLiftSpeed(float speed);
+	void SetGrabSpeed(float speed);
 };
 
 #endif
