@@ -6,6 +6,11 @@
 
 class BasicDriveFromJoystick: public CommandBase
 {
+private:
+
+	const float m_slowSpeed = 0.5f;
+	const float m_maxSpeed = 1.0f;
+
 public:
 	BasicDriveFromJoystick();
 	void Initialize();

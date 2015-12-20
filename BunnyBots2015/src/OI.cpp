@@ -9,8 +9,8 @@ OI::OI()
 	pLeftBumper = new JoystickButton(pStick2, 5);
 	pRightBumper = new JoystickButton(pStick2, 6);
 
-	pLeftBumper->WhenPressed(new SetPaddleAngle(45.0f));
-	pRightBumper->WhenPressed(new SetPaddleAngle(-30.0f));
+	pLeftBumper->WhenPressed(new SetPaddleAngle(0.35f));
+	pRightBumper->WhenPressed(new SetPaddleAngle(0.0f));
 }
 
 OI::~OI()

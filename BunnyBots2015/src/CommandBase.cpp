@@ -1,9 +1,7 @@
 #include "CommandBase.h"
-#include "Subsystems/PIDMecanumDrive.h"
 #include "Commands/Scheduler.h"
 
 OI* CommandBase::oi = NULL;
-//PIDMecanumDrive* CommandBase::pPIDMecanumDrive = NULL;
 BasicMecanumDrive* CommandBase::pBasicMecanumDrive = NULL;
 Paddle* CommandBase::pPaddle = NULL;
 BunnyClaw* CommandBase::pBunnyClaw = NULL;
@@ -25,5 +23,4 @@ void CommandBase::init()
 	pBunnyClaw = new BunnyClaw();
 
 	oi = new OI();
-	//pPIDMecanumDrive = new PIDMecanumDrive(); // Uncomment to initialize the subsystem.
 }

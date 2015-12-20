@@ -12,15 +12,13 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		//pAutonomousChooser = new SendableChooser();
-		//pAutonomousChooser->AddDefault("Drive straight for 10ft", new AutonomousCommand());
-		//autonomousCommand = (AutonomousCommand*)pAutonomousChooser->GetSelected();
+		autonomousCommand = new AutonomousCommand();
 		lw = LiveWindow::GetInstance();
+		CommandBase::pPaddle->SetEnabled(true);
 	}
 	
 	void DisabledInit()
 	{
-//		CommandBase::pBasicMecanumDrive->Reset();
 	}
 
 	void DisabledPeriodic()
@@ -30,7 +28,7 @@ private:
 
 	void AutonomousInit()
 	{
-//		CommandBase::pBasicMecanumDrive->Enable();
+		CommandBase::pBasicMecanumDrive->SetSafetyEnabled(false);
 
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
@@ -43,10 +41,10 @@ private:
 
 	void TeleopInit()
 	{
+		CommandBase::pBasicMecanumDrive->SetSafetyEnabled(true);
+
 		if (autonomousCommand != NULL)
 			autonomousCommand->Cancel();
-
-//		CommandBase::pBasicMecanumDrive->Enable();
 	}
 
 	void TeleopPeriodic()

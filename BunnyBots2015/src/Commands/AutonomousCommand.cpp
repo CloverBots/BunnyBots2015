@@ -1,19 +1,29 @@
 #include "AutonomousCommand.h"
-#include "PIDDriveFromPresets.h"
+#include "Delay.h"
+#include "CommandBase.h"
+#include "LowerClaw.h"
+#include "RaiseClaw.h"
+#include "SetClawGrabSpeed.h"
+#include "SetPaddleAngle.h"
+#include "DriveFromPresets.h"
 
 AutonomousCommand::AutonomousCommand()
 {
-	AddSequential(new PIDDriveFromPresets(10.0f, 0.0f, 0.0f));
+	Requires(CommandBase::pBasicMecanumDrive);
+	Requires(CommandBase::pPaddle);
+	Requires(CommandBase::pBunnyClaw);
 
-	// To run multiple commands at the same time,
-	// use AddParallel()
-	// e.g. AddParallel(new Command1());
-	//      AddSequential(new Command2());
-	// Command1 and Command2 will run in parallel.
-
-	// A command group will require all of the subsystems that each member
-	// would require.
-	// e.g. if Command1 requires chassis, and Command2 requires arm,
-	// a CommandGroup containing them would require both the chassis and the
-	// arm.
+	AddSequential(new LowerClaw());
+	AddSequential(new SetClawGrabSpeed(-1.0f));
+	AddSequential(new Delay(1.0));
+	AddSequential(new RaiseClaw());
+	AddSequential(new DriveFromPresets(0.0f, -0.5f, 0.0f));
+	AddSequential(new Delay(1.0));
+	AddSequential(new SetPaddleAngle(0.35f));
+	AddSequential(new Delay(0.5));
+	AddSequential(new DriveFromPresets(0.0f, 0.0f, -1.0f));
+	AddSequential(new Delay(0.05));
+	AddSequential(new DriveFromPresets(0.0f, -1.0f, 0.0f));
+	AddSequential(new Delay(1.75));
+	AddSequential(new DriveFromPresets(0.0f, 0.0f, 0.0f));
 }

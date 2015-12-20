@@ -26,6 +26,7 @@ public:
 	void InitDefaultCommand();
 
 	void Drive(float xSpeed, float ySpeed, float rotSpeed);
+	void SetSafetyEnabled(bool enabled);
 	float GetXSpeed();
 	float GetYSpeed();
 	float GetRotSpeed();

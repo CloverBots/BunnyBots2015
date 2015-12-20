@@ -1,13 +1,13 @@
-#ifndef DriveFromJoystick_H
-#define DriveFromJoystick_H
+#ifndef RaiseClaw_H
+#define RaiseClaw_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class PIDDriveFromJoystick: public CommandBase
+class RaiseClaw: public CommandBase
 {
 public:
-	PIDDriveFromJoystick();
+	RaiseClaw();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

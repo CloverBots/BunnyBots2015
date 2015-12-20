@@ -12,8 +12,7 @@ BasicMecanumDrive::BasicMecanumDrive() :
 
 	m_pRobotDrive = new RobotDrive(m_pFrontLeftMotor, m_pRearLeftMotor,
 			m_pFrontRightMotor, m_pRearRightMotor);
-
-	m_pRobotDrive->SetSafetyEnabled(false); // TODO: CHANGE. THIS. AS. SOON. AS. POSSIBLE.
+	m_pRobotDrive->SetExpiration(0.25f);
 }
 
 BasicMecanumDrive::~BasicMecanumDrive()
@@ -37,6 +36,11 @@ void BasicMecanumDrive::Drive(float xSpeed, float ySpeed, float rotSpeed)
 			m_ySpeed = ySpeed,
 			m_rotSpeed = rotSpeed,
 			0.0f);
+}
+
+void BasicMecanumDrive::SetSafetyEnabled(bool enabled)
+{
+	m_pRobotDrive->SetSafetyEnabled(enabled);
 }
 
 float BasicMecanumDrive::GetXSpeed()

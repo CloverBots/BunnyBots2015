@@ -36,10 +36,10 @@ void BunnyClaw::SetGrabSpeed(float speed)
 
 bool BunnyClaw::IsLowerLimitReached()
 {
-	return m_pLowerLimitSwitch->Get();
+	return !m_pLowerLimitSwitch->Get();
 }
 
 bool BunnyClaw::IsUpperLimitReached()
 {
-	return m_pUpperLimitSwitch->Get();
+	return !m_pUpperLimitSwitch->Get();
 }

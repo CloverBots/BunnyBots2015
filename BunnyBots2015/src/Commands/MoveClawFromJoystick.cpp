@@ -15,8 +15,8 @@ void MoveClawFromJoystick::Execute()
 {
 	CommandBase::pBunnyClaw->SetLiftSpeed(
 			std::fmax(std::fmin(CommandBase::oi->GetStick2()->GetRawAxis(1),
-					CommandBase::pBunnyClaw->IsLowerLimitReached() ? 0 : -1),
-					CommandBase::pBunnyClaw->IsUpperLimitReached() ? 0 : 1)
+					CommandBase::pBunnyClaw->IsLowerLimitReached() ? 0 : m_lowerSpeed),
+					CommandBase::pBunnyClaw->IsUpperLimitReached() ? 0 : m_liftSpeed)
 	);
 
 	CommandBase::pBunnyClaw->SetGrabSpeed(CommandBase::oi->GetStick2()->GetRawAxis(5));

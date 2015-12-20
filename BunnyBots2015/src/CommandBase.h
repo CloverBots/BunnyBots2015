@@ -4,7 +4,6 @@
 #include <string>
 #include "Commands/Command.h"
 #include "Subsystems/BasicMecanumDrive.h"
-#include "Subsystems/PIDMecanumDrive.h"
 #include "Subsystems/Paddle.h"
 #include "Subsystems/BunnyClaw.h"
 #include "OI.h"
@@ -21,9 +20,8 @@ public:
 	CommandBase(char const *name);
 	CommandBase();
 	static void init();
-	// Create a single static instance of all of your subsystems
+
 	static OI *oi;
-	//static PIDMecanumDrive* pPIDMecanumDrive;
 	static BasicMecanumDrive* pBasicMecanumDrive;
 	static Paddle* pPaddle;
 	static BunnyClaw* pBunnyClaw;

@@ -15,11 +15,12 @@ void BasicDriveFromJoystick::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void BasicDriveFromJoystick::Execute()
 {
-	std::cout << "Execute called...\n";
+	float speed = oi->GetStick1()->GetRawButton(6) ? m_slowSpeed : m_maxSpeed;
+
 	CommandBase::pBasicMecanumDrive->Drive(
-			oi->GetStick1()->GetRawAxis(0),
-			oi->GetStick1()->GetRawAxis(1),
-			oi->GetStick1()->GetRawAxis(4));
+			oi->GetStick1()->GetRawAxis(0) * speed,
+			oi->GetStick1()->GetRawAxis(1) * speed,
+			oi->GetStick1()->GetRawAxis(4) * speed);
 }
 
 // Make this return true when this Command no longer needs to run execute()

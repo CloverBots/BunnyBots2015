@@ -6,6 +6,11 @@
 
 class MoveClawFromJoystick: public CommandBase
 {
+private:
+
+	const float m_lowerSpeed = 0.25f;
+	const float m_liftSpeed = -0.5;
+
 public:
 	MoveClawFromJoystick();
 	void Initialize();
